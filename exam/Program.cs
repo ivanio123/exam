@@ -47,6 +47,8 @@ namespace exam
         }
         static void runMenu(Work[] workData, string workerSurname, string groupName) 
         {
+            int allSalaries = 0;
+            int count = 0;
             for (int i = 0; i < workData.Length; i++) 
             { 
                 if (workerSurname == workData[i].surname)
@@ -57,10 +59,13 @@ namespace exam
                 if (groupName == workData[i].nameOfGroup)
                 {
                     int totalSalary = workData[i].salaryA + workData[i].salaryB + workData[i].salaryC;
-                    int averageSalary = totalSalary / 
+                    allSalaries += totalSalary;
+                    count++;
                     Console.WriteLine("{0} {1}", workData[i].surname, totalSalary);
                 }
             }
+            int averageSalary = allSalaries / count;
+            Console.WriteLine("{0}", averageSalary);
         }
         static void Main(string[] args)
         {
